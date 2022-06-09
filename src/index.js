@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const products = require('./routes/products');
+const categories = require('./routes/categories');
+
 const db = require('./db/db');
 
 const app = express();
@@ -21,6 +23,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/products', products);
+app.use('/categories', categories);
 
 app.listen(port, () => {
   console.log('Runing in port:', port);

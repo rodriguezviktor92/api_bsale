@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
 const Product = require('../models/Product');
+const { cache, verifyCache } = require('./cache');
 
-router.get('/', async (req, res) => {
+router.get('/', verifyCache, async (req, res) => {
   /* const product = await Product.findAll(); */
 
   const pageAsNumber = Number.parseInt(req.query.page, 10);
+  const limit = 12;
 
   let page = 0;
   if (!Number.isNaN(pageAsNumber) && pageAsNumber > 0) {
@@ -15,16 +17,9 @@ router.get('/', async (req, res) => {
   const getProducts = async (query) => Product.findAndCountAll(query);
 
   const query = {
-    attributes: [
-      'id',
-      'name',
-      'url_image',
-      'price',
-      'discount',
-      'category',
-    ],
-    limit: 3,
-    offset: page * 3,
+    attributes: ['id', 'name', 'url_image', 'price', 'discount', 'category'],
+    limit,
+    offset: page * limit,
     /*     include: [
       {
         model: Category,
@@ -49,7 +44,6 @@ router.get('/', async (req, res) => {
 
     if (query.where) {
       query.where.name = {
-
         [Op.like]: `%${name.toLowerCase()}%`,
       };
     } else {
@@ -63,12 +57,18 @@ router.get('/', async (req, res) => {
 
   const products = await getProducts(query);
 
-  res.send({
-    totalPages: Math.ceil(products.count / 3),
-    content: products.rows,
-  });
+  console.log(req.originalUrl);
 
-/*   res.send(product); */
+  const response = {
+    totalPages: Math.ceil(products.count / limit),
+    content: products.rows,
+  };
+
+  cache.set(req.originalUrl, response);
+
+  res.send(response);
+
+  /*   res.send(product); */
 });
 
 router.get('/:id', (req, res) => {
