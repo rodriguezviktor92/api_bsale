@@ -5,7 +5,7 @@ const { cache, verifyCache } = require('./cache');
 
 router.get('/', verifyCache, async (req, res) => {
   const categories = await Category.findAll();
-  cache.set('categories', categories);
+  cache.set(req.originalUrl, categories);
   res.send(categories);
 });
 
