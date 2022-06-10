@@ -5,7 +5,7 @@ const cache = new NodeCache();
 const verifyCache = (req, res, next) => {
   try {
     if (cache.has(req.originalUrl)) {
-      return res.status(200).json(cache.get(req.originalUrl));
+      return res.json(cache.get(req.originalUrl));
     }
     return next();
   } catch (err) {
