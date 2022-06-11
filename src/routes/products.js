@@ -2,7 +2,78 @@ const router = require('express').Router();
 const { Op } = require('sequelize');
 const Product = require('../models/Product');
 const { cache, verifyCache } = require('./cache');
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Products:
+ *      type: object
+ *      properties:
+ *        category:
+ *          type: integer
+ *          description: number of category
+ *        discount:
+ *          type: integer
+ *          description: discount applied to the product
+ *        id:
+ *          type: integer
+ *          description: number of id
+ *        name:
+ *          type: integer
+ *          description: searched product name
+ *        price:
+ *          type: integer
+ *          description:  price of product
+ *        url_image:
+ *          type: string
+ *          description: product image url
+ */
 
+/**
+ * @swagger
+ * /products:
+ *  get:
+ *    summary: list all products including pagination, search by name and filter by categories
+ *    tags: [Products]
+ *    parameters:
+ *     -   name: page
+ *         in: query
+ *         description: number of page
+ *         schema:
+ *          type: integer
+ *          default:  0
+ *     -   name: category
+ *         description: number of category
+ *         in: query
+ *         schema:
+ *          type: integer
+ *          minimum:  1
+ *          maximum:  7
+ *          default:  3
+ *     -   name: name
+ *         description: product name to search
+ *         in: query
+ *         schema:
+ *          type: string
+ *          default:  ron
+ *    responses:
+ *      200:
+ *        description: list all products that match the sent parameters
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                totalPages:
+ *                  type: integer
+ *                  description: total number of pages according to the parameters sent
+ *                content:
+ *                  type: array
+ *                  description:  array of objects with product data
+ *                  items:
+ *                    $ref: '#/components/schemas/Products'
+ *
+ */
 router.get('/', verifyCache, async (req, res) => {
   /* const product = await Product.findAll(); */
 

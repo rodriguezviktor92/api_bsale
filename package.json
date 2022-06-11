@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "bgsale_api",
+  "description": "bsale_api",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
@@ -14,7 +14,9 @@
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "node-cache": "^5.1.2",
-    "sequelize": "^6.20.1"
+    "sequelize": "^6.20.1",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
