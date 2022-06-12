@@ -2,11 +2,13 @@
 
 \_Desafio tecnico para Bsale programado con ❤️ por [Victor rodriguez](https://www.linkedin.com/in/cv-victor-rodriguez/) 😊\_
 
-\_Este backend se conecta a la base de datos proporsionada por bsale para el desafio usando el ORM sequelize y permite hacer las siguientes operaciones:
-Consultar todas las categorias.
-Consultar todos los productos con paginacioin, busqueda por nombre y filtro por categorias.
+\_Este backend se conecta a la base de datos proporsionada por bsale para el desafio usando el ORM sequelize y permite hacer las siguientes operaciones:\_
 
-Adicionalmente se configuro un cache memory para disminuir el tiempo de respuesta de 1-2 segundos a 50-100 milisegundos\_
+_Consultar todas las categorias._
+
+_Consultar todos los productos con paginacioin, busqueda por nombre y filtro por categorias._
+
+\_Adicionalmente se configuro un cache memory para disminuir el tiempo de respuesta de 1-2 segundos a 50-100 milisegundos\_
 
 ## Comenzando 🚀
 
