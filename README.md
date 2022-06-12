@@ -8,7 +8,7 @@
 
 - Consultar todos los productos con paginacioin, busqueda por nombre y filtro por categorias.\_
 
-- Adicionalmente se configuro un cache memory para disminuir el tiempo de respuesta de 1-5 segundos a 300-500 milisegundos
+- Adicionalmente se configuro un cache memory para disminuir el tiempo de respuesta de 1-5 segundos a 100-300 milisegundos
 
 ## Comenzando 🚀
 
