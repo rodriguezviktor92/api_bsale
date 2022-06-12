@@ -2,13 +2,13 @@
 
 \_Desafio tecnico para Bsale programado con ❤️ por [Victor rodriguez](https://www.linkedin.com/in/cv-victor-rodriguez/) 😊\_
 
-\_Este backend se conecta a la base de datos proporsionada por bsale para el desafio usando el ORM sequelize y permite hacer las siguientes operaciones:\_
+\_Este backend se conecta a la base de datos proporcionada por bsale para el desafio usando el ORM sequelize y permite hacer las siguientes operaciones:\_
 
-_Consultar todas las categorias._
+- Consultar todas las categorias.
 
-_Consultar todos los productos con paginacioin, busqueda por nombre y filtro por categorias._
+- Consultar todos los productos con paginacioin, busqueda por nombre y filtro por categorias.\_
 
-\_Adicionalmente se configuro un cache memory para disminuir el tiempo de respuesta de 1-2 segundos a 50-100 milisegundos\_
+- Adicionalmente se configuro un cache memory para disminuir el tiempo de respuesta de 1-5 segundos a 300-500 milisegundos
 
 ## Comenzando 🚀
 
@@ -16,7 +16,10 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 ## Despliegue 📦
 
-_Aqui pueden ver el proyecto en funcionamiento_
+_Aqui pueden ver el API en funcionamiento_
+
+- [Documentacion](https://victor-api-bsale.herokuapp.com/api-doc/)
+- [API](https://victor-api-bsale.herokuapp.com/products)
 
 ### Pre-requisitos 📋
 
@@ -44,7 +47,7 @@ npm i
 
 ## Documentación 📖
 
-Puedes encontrar la documentacion del proyecto en la siguiente url [Wiki](https://github.com/tu/proyecto/wiki)
+Puedes encontrar la documentacion del proyecto en la siguiente url [Wiki](https://victor-api-bsale.herokuapp.com/api-doc/)
 
 ## Autor ✒️
 
