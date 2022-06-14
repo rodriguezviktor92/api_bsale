@@ -33,7 +33,7 @@ const { cache, verifyCache } = require('./cache');
  * @swagger
  * /products:
  *  get:
- *    summary: list all products including pagination, search by name and filter by categories
+ *    summary: list all products including pagination, search by name, order by price, filter by categories and discount
  *    tags: [Products]
  *    parameters:
  *     -   name: page
@@ -56,6 +56,20 @@ const { cache, verifyCache } = require('./cache');
  *         schema:
  *          type: string
  *          default:  ron
+ *     -   name: price
+ *         description: order price
+ *         in: query
+ *         schema:
+ *          type: string
+ *          enum: ['ASC', 'DESC']
+ *          default:  ASC
+ *     -   name: discount
+ *         description: product discount
+ *         in: query
+ *         schema:
+ *          type: string
+ *          enum: ['10', '20']
+ *
  *    responses:
  *      200:
  *        description: list all products that match the sent parameters
