@@ -118,6 +118,23 @@ router.get('/', verifyCache, async (req, res) => {
       }
     }
 
+    if (req.query.order && req.query.order !== '0') {
+      const { order } = req.query;
+
+      query.order = [['price', order]];
+    }
+
+    if (req.query.discount && req.query.discount !== '0') {
+      const { discount } = req.query;
+      if (query.where) {
+        console.log(discount);
+        query.where.discount = discount;
+      } else {
+        query.where = {
+          discount,
+        };
+      }
+    }
     const products = await getProducts(query);
 
     const response = {
